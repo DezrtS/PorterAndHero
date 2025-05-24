@@ -19,7 +19,7 @@ namespace Systems.Movement
             _isDodging = true;
             IsDisabled = true;
             _dodgeDirection = input;
-            StartCoroutine(DodgeTimer());
+            StartCoroutine(DodgeRoutine());
         }
 
         private void FixedUpdate()
@@ -28,7 +28,7 @@ namespace Systems.Movement
             ForceController.SetVelocity(_dodgeDirection * dodgeSpeed);
         }
 
-        private IEnumerator DodgeTimer()
+        private IEnumerator DodgeRoutine()
         {
             yield return new WaitForSeconds(dodgeDuration);
             _isDodging = false;

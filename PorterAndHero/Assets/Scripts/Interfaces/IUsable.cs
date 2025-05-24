@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using UnityEngine;
 
 namespace Interfaces
 {
@@ -16,6 +16,16 @@ namespace Interfaces
 
     public struct UseContext
     {
+        public GameObject SourceGameObject;
+        public IEntity SourceEntity;
 
+        public static UseContext Construct(GameObject sourceGameObject, IEntity sourceEntity)
+        {
+            return new UseContext()
+            {
+                SourceGameObject = sourceGameObject,
+                SourceEntity = sourceEntity,
+            };
+        }
     }
 }

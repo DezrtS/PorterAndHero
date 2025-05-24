@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73092b5680b00f643822a9d9a800e719, type: 3}
+  m_Name: DebugProjectileDatum
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 8425725409286424421, guid: 5e34bdb83a6845b4cbb33c0b06fe7778, type: 3}
+  fireSpeed: 15
+  damage: 1
+  lifetimeDuration: 5

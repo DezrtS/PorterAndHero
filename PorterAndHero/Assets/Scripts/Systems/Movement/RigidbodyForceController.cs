@@ -14,6 +14,7 @@ namespace Systems.Movement
 
         protected override void OnSetIsKinematic()
         {
+            if (!IsKinematic) SetVelocity(Vector2.zero);
             _rig.bodyType = IsKinematic ? RigidbodyType2D.Kinematic : RigidbodyType2D.Dynamic;
         }
 
