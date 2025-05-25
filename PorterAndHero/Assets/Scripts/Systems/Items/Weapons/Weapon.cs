@@ -1,6 +1,8 @@
 using System.Collections;
 using Interfaces;
+using Scriptables.Entities;
 using Scriptables.Items;
+using Systems.Player;
 using UnityEngine;
 
 namespace Systems.Items
@@ -22,7 +24,17 @@ namespace Systems.Items
 
         protected override void OnUse(UseContext useContext)
         {
-            BeginAttack(useContext);
+            if (useContext.SourceEntity.EntityDatum.EntityType == EntityDatum.Type.Player)
+            {
+                var playerController = useContext.SourceGameObject.GetComponent<PlayerController>();
+            
+                if (playerController.PlayerType == PlayerController.Type.Hero) BeginAttack(useContext);
+                else Throw(playerController.GetAimInput());   
+            }
+            else
+            {
+                BeginAttack(useContext);
+            }
         }
 
         private bool CanBeginAttack()
@@ -70,6 +82,11 @@ namespace Systems.Items
         {
             IsCoolingDown = true;
             yield return new WaitForSeconds(_weaponDatum.CooldownDuration);
+            OnCooldown();
+        }
+
+        protected virtual void OnCooldown()
+        {
             IsCoolingDown = false;
         }
     }

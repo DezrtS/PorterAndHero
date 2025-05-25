@@ -10,8 +10,8 @@ namespace Systems.Items
     public abstract class Item : MonoBehaviour, IUsable
     {
         public event IUsable.UsedEventHandler Used;
-        public delegate void ItemPickedUpEventHandler(Item item, bool isPickedUp);
-        public event ItemPickedUpEventHandler PickedUp;
+        public delegate void PickedUpEventHandler(Item item, bool isPickedUp);
+        public event PickedUpEventHandler PickedUp;
         
         [SerializeField] private ItemDatum itemDatum;
         
@@ -68,20 +68,21 @@ namespace Systems.Items
             return !IsPickedUp;    
         }
 
-        public void PickUp(Transform parent, bool resetPosition = true)
+        public void PickUp(Transform parent, bool resetPosition = true, bool resetRotation = true)
         {
             if (IsPickedUp) Drop();
             IsPickedUp = true;
-            OnPickUp(parent, resetPosition);
+            OnPickUp(parent, resetPosition, resetRotation);
             PickedUp?.Invoke(this, IsPickedUp);
         }
 
-        protected virtual void OnPickUp(Transform parent, bool resetPosition)
+        protected virtual void OnPickUp(Transform parent, bool resetPosition, bool resetRotation)
         {
             _rigidbodyForceController.IsKinematic = true;
             //_col.enabled = false;
             transform.SetParent(parent);
             if (resetPosition) transform.localPosition = Vector3.zero;
+            if (resetRotation) transform.localRotation = Quaternion.identity;
         }
 
         private bool CanDrop()

@@ -6,11 +6,9 @@ namespace Scriptables.Items
     public class MeleeWeaponDatum : WeaponDatum
     {
         [SerializeField] private int damage;
-        [SerializeField] private int range;
         [SerializeField] private float knockback;
         
         public int Damage => damage;
-        public int Range => range;
         public float Knockback => knockback;
     }
 }

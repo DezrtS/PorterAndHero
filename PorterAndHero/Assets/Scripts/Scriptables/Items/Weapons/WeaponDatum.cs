@@ -6,8 +6,10 @@ namespace Scriptables.Items
     {
         [SerializeField] private int durability;
         [SerializeField] private float cooldownDuration;
+        [SerializeField] private LayerMask layerMask;
 
         public int Durability => durability;
         public float CooldownDuration => cooldownDuration;
+        public LayerMask LayerMask => layerMask;
     }
 }

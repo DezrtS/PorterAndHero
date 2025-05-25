@@ -12,6 +12,7 @@ namespace Systems.Entities
         public event HealthStateEventHandler HealthStateChanged;
         
         [SerializeField] private HealthDatum healthDatum;
+        [SerializeField] private bool destroyOnDeath;
 
         private int _currentHealth;
         private bool _isDead;
@@ -65,6 +66,7 @@ namespace Systems.Entities
             SetHealth(0);
             _isDead = true;
             HealthStateChanged?.Invoke(this, _isDead);
+            if (destroyOnDeath) Destroy(gameObject);
         }
 
         public void Revive(bool replenishHealth = true)

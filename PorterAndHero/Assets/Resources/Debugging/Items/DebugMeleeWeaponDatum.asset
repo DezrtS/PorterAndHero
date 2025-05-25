@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf75558e69738084f9bb840fe8ca71e6, type: 3}
   m_Name: DebugMeleeWeaponDatum
   m_EditorClassIdentifier: 
+  itemName: Debug Melee Weapon
+  itemDescription: 
+  itemValue: 15
+  throwSpeed: 15
   durability: 3
   cooldownDuration: 1
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
   damage: 1
-  range: 3
-  knockback: 5
+  knockback: 2500

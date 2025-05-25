@@ -12,7 +12,7 @@ namespace Systems.Projectiles
     {
         public event IProjectile<Projectile>.ProjectileEventHandler Fired;
         public event IProjectile<Projectile>.ProjectileEventHandler Destroyed;
-        public event IProjectile<Projectile>.ProjectileHitEventHandler Hit;
+        public event IProjectile<Projectile>.HitEventHandler Hit;
         
         private FireContext _fireContext;
         private ForceController _forceController;

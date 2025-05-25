@@ -6,7 +6,7 @@ namespace Interfaces
     public interface IProjectile<T> where T : MonoBehaviour 
     {
         public delegate void ProjectileEventHandler(IProjectile<T> projectile);
-        public delegate void ProjectileHitEventHandler(IProjectile<T> projectile, Collider2D collider);
+        public delegate void HitEventHandler(IProjectile<T> projectile, Collider2D collider);
         
         public ProjectileDatum ProjectileDatum { get; }
         public bool IsFired { get; }

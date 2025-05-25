@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a40dea8a8cb36448eab3ae457a7b3c, type: 3}
   m_Name: DebugHeathDatum
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 2
   hitInvincibilityDuration: 0.25
   reviveInvincibilityDuration: 1
